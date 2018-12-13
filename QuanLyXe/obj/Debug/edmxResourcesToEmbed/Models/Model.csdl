@@ -1,0 +1,886 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYXEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIETPHANCONG">
+    <Key>
+      <PropertyRef Name="TENDNTX" />
+      <PropertyRef Name="MAXE" />
+      <PropertyRef Name="NGAYBATDAU" />
+    </Key>
+    <Property Name="TENDNTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="NGAYBATDAU" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GHICHUPC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHANCONG" Relationship="Self.FK_CHITIETP_CHITIETPH_PHANCONG" FromRole="CHITIETPHANCONG" ToRole="PHANCONG" />
+    <NavigationProperty Name="TAIXE" Relationship="Self.FK_CHITIETP_CHITIETPH_TAIXE" FromRole="CHITIETPHANCONG" ToRole="TAIXE" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_CHITIETP_CHITIETPH_XE" FromRole="CHITIETPHANCONG" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="CHITIETSUACHUA">
+    <Key>
+      <PropertyRef Name="MACTSC" />
+    </Key>
+    <Property Name="MACTSC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASUACHUA" Type="Int32" Nullable="false" />
+    <Property Name="NOIDUNGSC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGSC" Type="Int32" />
+    <Property Name="TONGTIENSC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GHICHUSC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SUACHUA" Relationship="Self.FK_CHITIETS_RELATIONS_SUACHUA" FromRole="CHITIETSUACHUA" ToRole="SUACHUA" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENCHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TAIXEs" Relationship="Self.FK_TAIXE_RELATIONS_CHUCVU" FromRole="CHUCVU" ToRole="TAIXE" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USER_RELATIONS_CHUCVU" FromRole="CHUCVU" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="DATXE">
+    <Key>
+      <PropertyRef Name="MADX" />
+    </Key>
+    <Property Name="MADX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRANGTHAI" Type="Int32" Nullable="false" />
+    <Property Name="MAXE" Type="Int32" />
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MALOAIXE" Type="Int32" Nullable="false" />
+    <Property Name="NGAYDX" Type="DateTime" Precision="3" />
+    <Property Name="NGAYDI" Type="DateTime" Precision="0" />
+    <Property Name="NGAYVE" Type="DateTime" Precision="0" />
+    <Property Name="GIODI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIOVE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LOTRINHDI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOKMDI" Type="Single" />
+    <Property Name="LOTRINHVE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOKMVE" Type="Single" />
+    <Property Name="GHICHUDUYET" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGDOAN" Type="Int32" />
+    <Property Name="CHUTRIDOAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.FK_DATXE_RELATIONS_LOAIXE" FromRole="DATXE" ToRole="LOAIXE" />
+    <NavigationProperty Name="TRANGTHAIXE" Relationship="Self.FK_DATXE_RELATIONS_TRANGTHA" FromRole="DATXE" ToRole="TRANGTHAIXE" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_DATXE_RELATIONS_USER" FromRole="DATXE" ToRole="USERS" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_DATXE_RELATIONS_XE" FromRole="DATXE" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="KHOA">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENKHOA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDTKHOA" Type="Int32" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USER_RELATIONS_KHOA" FromRole="KHOA" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="MALOAIXE" />
+    </Key>
+    <Property Name="MALOAIXE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DATXEs" Relationship="Self.FK_DATXE_RELATIONS_LOAIXE" FromRole="LOAIXE" ToRole="DATXE" />
+    <NavigationProperty Name="XEs" Relationship="Self.FK_XE_RELATIONS_LOAIXE" FromRole="LOAIXE" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="PHANCONG">
+    <Key>
+      <PropertyRef Name="NGAYBATDAU" />
+    </Key>
+    <Property Name="NGAYBATDAU" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NGAYKETTHUC" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CHITIETPHANCONGs" Relationship="Self.FK_CHITIETP_CHITIETPH_PHANCONG" FromRole="PHANCONG" ToRole="CHITIETPHANCONG" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_PHANCONG_RELATIONS_USER" FromRole="PHANCONG" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="PHIKHAC">
+    <Key>
+      <PropertyRef Name="MAPHI" />
+    </Key>
+    <Property Name="MAPHI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="NOIDUNGPHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TONGPHI" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NGAYTHUCHIEN" Type="DateTime" Precision="3" />
+    <Property Name="NOITHUCHIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_PHIKHAC_RELATIONS_XE" FromRole="PHIKHAC" ToRole="XE" />
+    <Property Name="HOADONPHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SUACHUA">
+    <Key>
+      <PropertyRef Name="MASUACHUA" />
+    </Key>
+    <Property Name="MASUACHUA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="NOISUA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYBD" Type="DateTime" Precision="3" />
+    <Property Name="NGAYKT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CHITIETSUACHUAs" Relationship="Self.FK_CHITIETS_RELATIONS_SUACHUA" FromRole="SUACHUA" ToRole="CHITIETSUACHUA" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_SUACHUA_RELATIONS_XE" FromRole="SUACHUA" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TAIXE">
+    <Key>
+      <PropertyRef Name="TENDNTX" />
+    </Key>
+    <Property Name="TENDNTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MACHUCVU" Type="Int32" Nullable="false" />
+    <Property Name="MATKHAUTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOTENTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMSINHTX" Type="DateTime" Precision="3" />
+    <Property Name="DIACHITX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDTTX" Type="Int32" />
+    <Property Name="CMNDTX" Type="Int32" />
+    <Property Name="SOBANGLAI" Type="Int32" />
+    <Property Name="HANBANGLAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NOICAPBL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYCAPBL" Type="DateTime" Precision="3" />
+    <Property Name="NGAYHETHANBL" Type="DateTime" Precision="3" />
+    <Property Name="CHANDUNG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETPHANCONGs" Relationship="Self.FK_CHITIETP_CHITIETPH_TAIXE" FromRole="TAIXE" ToRole="CHITIETPHANCONG" />
+    <NavigationProperty Name="CHUCVU" Relationship="Self.FK_TAIXE_RELATIONS_CHUCVU" FromRole="TAIXE" ToRole="CHUCVU" />
+  </EntityType>
+  <EntityType Name="THONGKETHANG">
+    <Key>
+      <PropertyRef Name="THANG" />
+      <PropertyRef Name="NAM" />
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="THANG" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="NAM" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="SOCHUYEN" Type="Int32" />
+    <Property Name="SOKM" Type="Single" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_THONGKET_RELATIONS_XE" FromRole="THONGKETHANG" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="TINHTRANGXE">
+    <Key>
+      <PropertyRef Name="MATINHTRANG" />
+    </Key>
+    <Property Name="MATINHTRANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTINHTRANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="XEs" Relationship="Self.FK_XE_RELATIONS_TINHTRAN" FromRole="TINHTRANGXE" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="TRANGTHAIXE">
+    <Key>
+      <PropertyRef Name="MATRANGTHAI" />
+    </Key>
+    <Property Name="MATRANGTHAI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DATXEs" Relationship="Self.FK_DATXE_RELATIONS_TRANGTHA" FromRole="TRANGTHAIXE" ToRole="DATXE" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="TENDN" />
+    </Key>
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MAKHOA" Type="Int32" />
+    <Property Name="MACHUCVU" Type="Int32" Nullable="false" />
+    <Property Name="MATKHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMSINH" Type="DateTime" Precision="3" />
+    <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="Int32" />
+    <Property Name="AVATAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHUCVU" Relationship="Self.FK_USER_RELATIONS_CHUCVU" FromRole="USERS" ToRole="CHUCVU" />
+    <NavigationProperty Name="DATXEs" Relationship="Self.FK_DATXE_RELATIONS_USER" FromRole="USERS" ToRole="DATXE" />
+    <NavigationProperty Name="KHOA" Relationship="Self.FK_USER_RELATIONS_KHOA" FromRole="USERS" ToRole="KHOA" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK_PHANCONG_RELATIONS_USER" FromRole="USERS" ToRole="PHANCONG" />
+    <NavigationProperty Name="PHANQUYENs" Relationship="QUANLYXEModel.FK_PHANQUYEN_USERS1" FromRole="USER" ToRole="PHANQUYEN" />
+  </EntityType>
+  <EntityType Name="XANGLOP">
+    <Key>
+      <PropertyRef Name="MAXANGLOP" />
+    </Key>
+    <Property Name="MAXANGLOP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="DIADIEM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYDO" Type="DateTime" Precision="3" />
+    <Property Name="SOLUONG" Type="Single" />
+    <Property Name="TONGTIEN" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ANHHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LOAIHINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="XE" Relationship="Self.FK_XANGLOP_RELATIONS_XE" FromRole="XANGLOP" ToRole="XE" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MALOAIXE" Type="Int32" Nullable="false" />
+    <Property Name="MATINHTRANG" Type="Int32" Nullable="false" />
+    <Property Name="BIENSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NHANHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOPSO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NHIENLIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HANLUUHANH" Type="DateTime" Precision="3" />
+    <Property Name="HANBAOHIEM" Type="DateTime" Precision="3" />
+    <Property Name="HINHXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETPHANCONGs" Relationship="Self.FK_CHITIETP_CHITIETPH_XE" FromRole="XE" ToRole="CHITIETPHANCONG" />
+    <NavigationProperty Name="DATXEs" Relationship="Self.FK_DATXE_RELATIONS_XE" FromRole="XE" ToRole="DATXE" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.FK_XE_RELATIONS_LOAIXE" FromRole="XE" ToRole="LOAIXE" />
+    <NavigationProperty Name="PHIKHACs" Relationship="Self.FK_PHIKHAC_RELATIONS_XE" FromRole="XE" ToRole="PHIKHAC" />
+    <NavigationProperty Name="SUACHUAs" Relationship="Self.FK_SUACHUA_RELATIONS_XE" FromRole="XE" ToRole="SUACHUA" />
+    <NavigationProperty Name="THONGKETHANGs" Relationship="Self.FK_THONGKET_RELATIONS_XE" FromRole="XE" ToRole="THONGKETHANG" />
+    <NavigationProperty Name="TINHTRANGXE" Relationship="Self.FK_XE_RELATIONS_TINHTRAN" FromRole="XE" ToRole="TINHTRANGXE" />
+    <NavigationProperty Name="XANGLOPs" Relationship="Self.FK_XANGLOP_RELATIONS_XE" FromRole="XE" ToRole="XANGLOP" />
+  </EntityType>
+  <EntityType Name="Phancongtx">
+    <Key>
+      <PropertyRef Name="NGAYBATDAU" />
+      <PropertyRef Name="TENDN" />
+      <PropertyRef Name="TENDNTX" />
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="NGAYBATDAU" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NGAYKETTHUC" Type="DateTime" Precision="3" />
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TENDNTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HOTENTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CHANDUNG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="NHANHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BIENSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HINHXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThongtinDatxe">
+    <Key>
+      <PropertyRef Name="MADX" />
+      <PropertyRef Name="MATRANGTHAI" />
+      <PropertyRef Name="TENDN" />
+      <PropertyRef Name="MALOAIXE" />
+    </Key>
+    <Property Name="MADX" Type="Int32" Nullable="false" />
+    <Property Name="MATRANGTHAI" Type="Int32" Nullable="false" />
+    <Property Name="TENTRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAKHOA" Type="Int32" />
+    <Property Name="TENKHOA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MALOAIXE" Type="Int32" Nullable="false" />
+    <Property Name="TENLOAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAXE" Type="Int32" />
+    <Property Name="NGAYDX" Type="DateTime" Precision="3" />
+    <Property Name="NGAYDI" Type="DateTime" Precision="0" />
+    <Property Name="NGAYVE" Type="DateTime" Precision="0" />
+    <Property Name="GIODI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIOVE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CHUTRIDOAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGDOAN" Type="Int32" />
+    <Property Name="LOTRINHDI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LOTRINHVE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOKMDI" Type="Single" />
+    <Property Name="SOKMVE" Type="Single" />
+    <Property Name="GHICHUDUYET" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Thongtinxe">
+    <Key>
+      <PropertyRef Name="MAXE" />
+      <PropertyRef Name="MATINHTRANG" />
+    </Key>
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="BIENSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NHANHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TENLOAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOPSO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NHIENLIEU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TENTINHTRANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HANLUUHANH" Type="DateTime" Precision="3" />
+    <Property Name="HANBAOHIEM" Type="DateTime" Precision="3" />
+    <Property Name="HINHXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MATINHTRANG" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_DatxeTaixe">
+    <Key>
+      <PropertyRef Name="TENDNTX" />
+      <PropertyRef Name="MADX" />
+      <PropertyRef Name="MATRANGTHAI" />
+    </Key>
+    <Property Name="TENDNTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HOTENTX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYDI" Type="DateTime" Precision="0" />
+    <Property Name="NGAYVE" Type="DateTime" Precision="0" />
+    <Property Name="MAXE" Type="Int32" />
+    <Property Name="NHANHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BIENSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TENTRANGTHAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYDX" Type="DateTime" Precision="3" />
+    <Property Name="MADX" Type="Int32" Nullable="false" />
+    <Property Name="MATRANGTHAI" Type="Int32" Nullable="false" />
+    <Property Name="LOTRINHDI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOKMDI" Type="Single" />
+    <Property Name="LOTRINHVE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOKMVE" Type="Single" />
+    <Property Name="CHANDUNG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HINHXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_Suachua">
+    <Key>
+      <PropertyRef Name="MAXE" />
+      <PropertyRef Name="MASUACHUA" />
+      <PropertyRef Name="MACTSC" />
+    </Key>
+    <Property Name="MAXE" Type="Int32" Nullable="false" />
+    <Property Name="NOISUA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYBD" Type="DateTime" Precision="3" />
+    <Property Name="NGAYKT" Type="DateTime" Precision="3" />
+    <Property Name="NOIDUNGSC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGSC" Type="Int32" />
+    <Property Name="TONGTIENSC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GHICHUSC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MASUACHUA" Type="Int32" Nullable="false" />
+    <Property Name="MACTSC" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_Taikhoan">
+    <Key>
+      <PropertyRef Name="TENDN" />
+      <PropertyRef Name="MACHUCVU" />
+    </Key>
+    <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MAKHOA" Type="Int32" />
+    <Property Name="TENKHOA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MACHUCVU" Type="Int32" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMSINH" Type="DateTime" Precision="3" />
+    <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="Int32" />
+    <Property Name="AVATAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CHITIETP_CHITIETPH_PHANCONG">
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="1" />
+    <End Role="CHITIETPHANCONG" Type="Self.CHITIETPHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHANCONG">
+        <PropertyRef Name="NGAYBATDAU" />
+      </Principal>
+      <Dependent Role="CHITIETPHANCONG">
+        <PropertyRef Name="NGAYBATDAU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETP_CHITIETPH_TAIXE">
+    <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="1" />
+    <End Role="CHITIETPHANCONG" Type="Self.CHITIETPHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIXE">
+        <PropertyRef Name="TENDNTX" />
+      </Principal>
+      <Dependent Role="CHITIETPHANCONG">
+        <PropertyRef Name="TENDNTX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETP_CHITIETPH_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="CHITIETPHANCONG" Type="Self.CHITIETPHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="CHITIETPHANCONG">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETS_RELATIONS_SUACHUA">
+    <End Role="SUACHUA" Type="Self.SUACHUA" Multiplicity="1" />
+    <End Role="CHITIETSUACHUA" Type="Self.CHITIETSUACHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUACHUA">
+        <PropertyRef Name="MASUACHUA" />
+      </Principal>
+      <Dependent Role="CHITIETSUACHUA">
+        <PropertyRef Name="MASUACHUA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TAIXE_RELATIONS_CHUCVU">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
+    <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACHUCVU" />
+      </Principal>
+      <Dependent Role="TAIXE">
+        <PropertyRef Name="MACHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_RELATIONS_CHUCVU">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
+    <End Role="USERS" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACHUCVU" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="MACHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATXE_RELATIONS_LOAIXE">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="1" />
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Principal>
+      <Dependent Role="DATXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATXE_RELATIONS_TRANGTHA">
+    <End Role="TRANGTHAIXE" Type="Self.TRANGTHAIXE" Multiplicity="1" />
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANGTHAIXE">
+        <PropertyRef Name="MATRANGTHAI" />
+      </Principal>
+      <Dependent Role="DATXE">
+        <PropertyRef Name="MATRANGTHAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATXE_RELATIONS_USER">
+    <End Role="USERS" Type="Self.USER" Multiplicity="1" />
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="TENDN" />
+      </Principal>
+      <Dependent Role="DATXE">
+        <PropertyRef Name="TENDN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATXE_RELATIONS_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="DATXE">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_RELATIONS_KHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="USERS" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XE_RELATIONS_LOAIXE">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MALOAIXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANCONG_RELATIONS_USER">
+    <End Role="USERS" Type="Self.USER" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="TENDN" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="TENDN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIKHAC_RELATIONS_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="PHIKHAC" Type="Self.PHIKHAC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="PHIKHAC">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUACHUA_RELATIONS_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="SUACHUA" Type="Self.SUACHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="SUACHUA">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGKET_RELATIONS_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="THONGKETHANG" Type="Self.THONGKETHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="THONGKETHANG">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XE_RELATIONS_TINHTRAN">
+    <End Role="TINHTRANGXE" Type="Self.TINHTRANGXE" Multiplicity="1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGXE">
+        <PropertyRef Name="MATINHTRANG" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MATINHTRANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XANGLOP_RELATIONS_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="XANGLOP" Type="Self.XANGLOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="XANGLOP">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYXEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETPHANCONGs" EntityType="Self.CHITIETPHANCONG" />
+    <EntitySet Name="CHITIETSUACHUAs" EntityType="Self.CHITIETSUACHUA" />
+    <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
+    <EntitySet Name="DATXEs" EntityType="Self.DATXE" />
+    <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+    <EntitySet Name="LOAIXEs" EntityType="Self.LOAIXE" />
+    <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+    <EntitySet Name="PHIKHACs" EntityType="Self.PHIKHAC" />
+    <EntitySet Name="SUACHUAs" EntityType="Self.SUACHUA" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TAIXEs" EntityType="Self.TAIXE" />
+    <EntitySet Name="THONGKETHANGs" EntityType="Self.THONGKETHANG" />
+    <EntitySet Name="TINHTRANGXEs" EntityType="Self.TINHTRANGXE" />
+    <EntitySet Name="TRANGTHAIXEs" EntityType="Self.TRANGTHAIXE" />
+    <EntitySet Name="USERS" EntityType="Self.USER" />
+    <EntitySet Name="XANGLOPs" EntityType="Self.XANGLOP" />
+    <EntitySet Name="XEs" EntityType="Self.XE" />
+    <EntitySet Name="Phancongtxes" EntityType="Self.Phancongtx" />
+    <EntitySet Name="ThongtinDatxes" EntityType="Self.ThongtinDatxe" />
+    <EntitySet Name="Thongtinxes" EntityType="Self.Thongtinxe" />
+    <EntitySet Name="v_DatxeTaixe" EntityType="Self.v_DatxeTaixe" />
+    <EntitySet Name="v_Suachua" EntityType="Self.v_Suachua" />
+    <EntitySet Name="v_Taikhoan" EntityType="Self.v_Taikhoan" />
+    <AssociationSet Name="FK_CHITIETP_CHITIETPH_PHANCONG" Association="Self.FK_CHITIETP_CHITIETPH_PHANCONG">
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+      <End Role="CHITIETPHANCONG" EntitySet="CHITIETPHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETP_CHITIETPH_TAIXE" Association="Self.FK_CHITIETP_CHITIETPH_TAIXE">
+      <End Role="TAIXE" EntitySet="TAIXEs" />
+      <End Role="CHITIETPHANCONG" EntitySet="CHITIETPHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETP_CHITIETPH_XE" Association="Self.FK_CHITIETP_CHITIETPH_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="CHITIETPHANCONG" EntitySet="CHITIETPHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETS_RELATIONS_SUACHUA" Association="Self.FK_CHITIETS_RELATIONS_SUACHUA">
+      <End Role="SUACHUA" EntitySet="SUACHUAs" />
+      <End Role="CHITIETSUACHUA" EntitySet="CHITIETSUACHUAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TAIXE_RELATIONS_CHUCVU" Association="Self.FK_TAIXE_RELATIONS_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="TAIXE" EntitySet="TAIXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_RELATIONS_CHUCVU" Association="Self.FK_USER_RELATIONS_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATXE_RELATIONS_LOAIXE" Association="Self.FK_DATXE_RELATIONS_LOAIXE">
+      <End Role="LOAIXE" EntitySet="LOAIXEs" />
+      <End Role="DATXE" EntitySet="DATXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATXE_RELATIONS_TRANGTHA" Association="Self.FK_DATXE_RELATIONS_TRANGTHA">
+      <End Role="TRANGTHAIXE" EntitySet="TRANGTHAIXEs" />
+      <End Role="DATXE" EntitySet="DATXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATXE_RELATIONS_USER" Association="Self.FK_DATXE_RELATIONS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DATXE" EntitySet="DATXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATXE_RELATIONS_XE" Association="Self.FK_DATXE_RELATIONS_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="DATXE" EntitySet="DATXEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_RELATIONS_KHOA" Association="Self.FK_USER_RELATIONS_KHOA">
+      <End Role="KHOA" EntitySet="KHOAs" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XE_RELATIONS_LOAIXE" Association="Self.FK_XE_RELATIONS_LOAIXE">
+      <End Role="LOAIXE" EntitySet="LOAIXEs" />
+      <End Role="XE" EntitySet="XEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANCONG_RELATIONS_USER" Association="Self.FK_PHANCONG_RELATIONS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIKHAC_RELATIONS_XE" Association="Self.FK_PHIKHAC_RELATIONS_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="PHIKHAC" EntitySet="PHIKHACs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUACHUA_RELATIONS_XE" Association="Self.FK_SUACHUA_RELATIONS_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="SUACHUA" EntitySet="SUACHUAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGKET_RELATIONS_XE" Association="Self.FK_THONGKET_RELATIONS_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="THONGKETHANG" EntitySet="THONGKETHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XE_RELATIONS_TINHTRAN" Association="Self.FK_XE_RELATIONS_TINHTRAN">
+      <End Role="TINHTRANGXE" EntitySet="TINHTRANGXEs" />
+      <End Role="XE" EntitySet="XEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XANGLOP_RELATIONS_XE" Association="Self.FK_XANGLOP_RELATIONS_XE">
+      <End Role="XE" EntitySet="XEs" />
+      <End Role="XANGLOP" EntitySet="XANGLOPs" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QUANLYXEModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QUANLYXEModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Quyenuserksd" ReturnType="Collection(QUANLYXEModel.sp_Quyenuserksd_Result)">
+      <Parameter Name="tendn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Quyenusersd" ReturnType="Collection(QUANLYXEModel.sp_Quyenusersd_Result)">
+      <Parameter Name="tendn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_TKChuyendi" ReturnType="Collection(QUANLYXEModel.sp_TKChuyendi_Result)">
+      <Parameter Name="thang" Mode="In" Type="Int32" />
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="maxe" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_TKThang" ReturnType="Collection(QUANLYXEModel.sp_TKThang_Result)">
+      <Parameter Name="thang" Mode="In" Type="Int32" />
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="maxe" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_Xechuadat" ReturnType="Collection(QUANLYXEModel.sp_Xechuadat_Result)">
+      <Parameter Name="Ngay" Mode="In" Type="DateTime" />
+      <Parameter Name="Ngayve" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Xedadat" ReturnType="Collection(QUANLYXEModel.sp_Xedadat_Result)">
+      <Parameter Name="Ngay" Mode="In" Type="DateTime" />
+      <Parameter Name="Ngayve" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spNgaylamtx" ReturnType="Collection(QUANLYXEModel.spNgaylamtx_Result)">
+      <Parameter Name="Tenttx" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="PHANQUYENs" EntityType="QUANLYXEModel.PHANQUYEN" />
+    <AssociationSet Name="FK_PHANQUYEN_USERS1" Association="QUANLYXEModel.FK_PHANQUYEN_USERS1">
+      <End Role="USER" EntitySet="USERS" />
+      <End Role="PHANQUYEN" EntitySet="PHANQUYENs" />
+    </AssociationSet>
+    <EntitySet Name="QUYENHANs" EntityType="QUANLYXEModel.QUYENHAN" />
+    <AssociationSet Name="QUYENHANPHANQUYEN" Association="QUANLYXEModel.QUYENHANPHANQUYEN">
+      <End Role="QUYENHAN" EntitySet="QUYENHANs" />
+      <End Role="PHANQUYEN" EntitySet="PHANQUYENs" />
+    </AssociationSet>
+    <FunctionImport Name="sp_CTTKThang" ReturnType="Collection(QUANLYXEModel.sp_CTTKThang_Result)">
+      <Parameter Name="MAXE" Mode="In" Type="Int32" />
+      <Parameter Name="Thang" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_Quyenuserksd_Result">
+    <Property Type="Int32" Name="MAQUYEN" Nullable="false" />
+    <Property Type="String" Name="TENQUYEN" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_Quyenusersd_Result">
+    <Property Type="String" Name="TENDN" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="MAQUYEN" Nullable="false" />
+    <Property Type="String" Name="TENQUYEN" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_TKChuyendi_Result">
+    <Property Type="Int32" Name="MADX" Nullable="false" />
+    <Property Type="Int32" Name="MATRANGTHAI" Nullable="false" />
+    <Property Type="String" Name="TENTRANGTHAI" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TENDN" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="HOTEN" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MAKHOA" Nullable="true" />
+    <Property Type="String" Name="TENKHOA" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MALOAIXE" Nullable="false" />
+    <Property Type="String" Name="TENLOAIXE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MAXE" Nullable="true" />
+    <Property Type="DateTime" Name="NGAYDX" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="NGAYDI" Nullable="true" />
+    <Property Type="DateTime" Name="NGAYVE" Nullable="true" />
+    <Property Type="String" Name="GIODI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GIOVE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CHUTRIDOAN" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SOLUONGDOAN" Nullable="true" />
+    <Property Type="String" Name="LOTRINHDI" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="LOTRINHVE" Nullable="true" MaxLength="200" />
+    <Property Type="Single" Name="SOKMDI" Nullable="true" />
+    <Property Type="Single" Name="SOKMVE" Nullable="true" />
+    <Property Type="String" Name="GHICHUDUYET" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_TKThang_Result">
+    <Property Type="Decimal" Name="THANG" Nullable="false" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="NAM" Nullable="false" Precision="4" Scale="0" />
+    <Property Type="Int32" Name="MAXE" Nullable="false" />
+    <Property Type="Int32" Name="SOCHUYEN" Nullable="true" />
+    <Property Type="Single" Name="SOKM" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Xechuadat_Result">
+    <Property Type="Int32" Name="MAXE" Nullable="false" />
+    <Property Type="String" Name="BIENSO" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="NHANHIEU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TENTINHTRANG" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TENTRANGTHAI" Nullable="false" MaxLength="6" />
+    <Property Type="Int32" Name="MALOAIXE" Nullable="false" />
+    <Property Type="String" Name="TENLOAIXE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SOCHUYEN" Nullable="true" />
+    <Property Type="Single" Name="SOKM" Nullable="true" />
+    <Property Type="String" Name="NHIENLIEU" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HOPSO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HINHXE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_Xedadat_Result">
+    <Property Type="Int32" Name="MAXE" Nullable="false" />
+    <Property Type="String" Name="BIENSO" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="NHANHIEU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TENTINHTRANG" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TENTRANGTHAI" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="MALOAIXE" Nullable="false" />
+    <Property Type="String" Name="TENLOAIXE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SOCHUYEN" Nullable="true" />
+    <Property Type="Single" Name="SOKM" Nullable="true" />
+    <Property Type="String" Name="NHIENLIEU" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HOPSO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HINHXE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spNgaylamtx_Result">
+    <Property Type="String" Name="TENDNTX" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="HOTENTX" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NGAYDI" Nullable="true" />
+    <Property Type="DateTime" Name="NGAYVE" Nullable="true" />
+    <Property Type="Int32" Name="MAXE" Nullable="true" />
+    <Property Type="String" Name="NHANHIEU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BIENSO" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="TENTRANGTHAI" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HOTEN" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NGAYDX" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="MADX" Nullable="false" />
+    <Property Type="Int32" Name="MATRANGTHAI" Nullable="false" />
+    <Property Type="String" Name="CHANDUNG" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="PHANQUYEN">
+    <Key>
+      <PropertyRef Name="TENDN" />
+      <PropertyRef Name="MAQUYEN" />
+    </Key>
+    <Property Name="TENDN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAQUYEN" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="USER" Relationship="QUANLYXEModel.FK_PHANQUYEN_USERS1" FromRole="PHANQUYEN" ToRole="USER" />
+    <NavigationProperty Name="QUYENHAN" Relationship="QUANLYXEModel.QUYENHANPHANQUYEN" FromRole="PHANQUYEN" ToRole="QUYENHAN" />
+  </EntityType>
+  <Association Name="FK_PHANQUYEN_USERS1">
+    <End Type="QUANLYXEModel.USER" Role="USER" Multiplicity="1" />
+    <End Type="QUANLYXEModel.PHANQUYEN" Role="PHANQUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="TENDN" />
+      </Principal>
+      <Dependent Role="PHANQUYEN">
+        <PropertyRef Name="TENDN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="QUYENHAN">
+    <Key>
+      <PropertyRef Name="MAQUYEN" />
+    </Key>
+    <Property Name="MAQUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENQUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHANQUYENs" Relationship="QUANLYXEModel.QUYENHANPHANQUYEN" FromRole="QUYENHAN" ToRole="PHANQUYEN" />
+  </EntityType>
+  <Association Name="QUYENHANPHANQUYEN">
+    <End Type="QUANLYXEModel.QUYENHAN" Role="QUYENHAN" Multiplicity="1" />
+    <End Type="QUANLYXEModel.PHANQUYEN" Role="PHANQUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUYENHAN">
+        <PropertyRef Name="MAQUYEN" />
+      </Principal>
+      <Dependent Role="PHANQUYEN">
+        <PropertyRef Name="MAQUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_CTTKThang_Result">
+    <Property Type="Single" Name="SOKMDI" Nullable="true" />
+    <Property Type="Single" Name="SOKMVE" Nullable="true" />
+    <Property Type="DateTime" Name="NGAYDI" Nullable="true" />
+    <Property Type="DateTime" Name="NGAYVE" Nullable="true" />
+  </ComplexType>
+</Schema>

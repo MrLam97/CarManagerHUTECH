@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="login-panel panel panel-default">
+    <div class="panel-heading">
+        <img _ngcontent-c1="" alt="HUTECH - Login" class="brand" src="~/Areas/Admin/Content/Login/Image/logo.png">
+    </div>
+    <div class="panel-body">
+        <form role="form" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Tên đăng nhập" name="TenDN" type="text" autofocus>
+                    <h4 style="color:red; text-align:center"> @ViewData["Loi1"]</h4>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Mật khẩu" name="Matkhau" type="password" value="">
+                    <h4 style="color:red; text-align:center"> @ViewData["Loi2"]</h4>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                    </label>
+                </div>
+                <!-- Change this to a button or input when using this as a form -->
+                <button class="btn btn-lg btn-success btn-block" type="submit">Đăng nhập</button>
+                <h4 style="color:red; text-align:center"> @ViewBag.Thongbao</h4>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+

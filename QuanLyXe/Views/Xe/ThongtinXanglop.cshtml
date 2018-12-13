@@ -1,0 +1,29 @@
+﻿@model IEnumerable<QuanLyXe.Models.XANGLOP>
+
+<h3>Đổ xăng, thay lốp</h3>
+<table class="data table table-striped no-margin">
+    <thead>
+        <tr>
+            <th>Loại hình</th>
+            <th>Địa điểm</th>
+            <th>Ngày thực hiện</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền</th>
+            <th>Hóa đơn</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.LOAIHINH</td>
+                <td>@item.DIADIEM</td>
+                <td>@item.NGAYDO.Value.Day/@item.NGAYDO.Value.Month/@item.NGAYDO.Value.Year</td>
+                <td>@item.SOLUONG</td>
+                <td>@item.TONGTIEN</td>
+                <td>@item.ANHHOADON</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />

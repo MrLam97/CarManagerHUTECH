@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYXEModelStoreContainer" CdmEntityContainer="QUANLYXEEntities">
+    <EntitySetMapping Name="CHITIETPHANCONGs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.CHITIETPHANCONG">
+        <MappingFragment StoreEntitySet="CHITIETPHANCONG">
+          <ScalarProperty Name="TENDNTX" ColumnName="TENDNTX" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+          <ScalarProperty Name="GHICHUPC" ColumnName="GHICHUPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETSUACHUAs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.CHITIETSUACHUA">
+        <MappingFragment StoreEntitySet="CHITIETSUACHUA">
+          <ScalarProperty Name="MACTSC" ColumnName="MACTSC" />
+          <ScalarProperty Name="MASUACHUA" ColumnName="MASUACHUA" />
+          <ScalarProperty Name="NOIDUNGSC" ColumnName="NOIDUNGSC" />
+          <ScalarProperty Name="SOLUONGSC" ColumnName="SOLUONGSC" />
+          <ScalarProperty Name="TONGTIENSC" ColumnName="TONGTIENSC" />
+          <ScalarProperty Name="GHICHUSC" ColumnName="GHICHUSC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCVUs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.CHUCVU">
+        <MappingFragment StoreEntitySet="CHUCVU">
+          <ScalarProperty Name="MACHUCVU" ColumnName="MACHUCVU" />
+          <ScalarProperty Name="TENCHUCVU" ColumnName="TENCHUCVU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DATXEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.DATXE">
+        <MappingFragment StoreEntitySet="DATXE">
+          <ScalarProperty Name="MADX" ColumnName="MADX" />
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="NGAYDX" ColumnName="NGAYDX" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+          <ScalarProperty Name="GIODI" ColumnName="GIODI" />
+          <ScalarProperty Name="GIOVE" ColumnName="GIOVE" />
+          <ScalarProperty Name="LOTRINHDI" ColumnName="LOTRINHDI" />
+          <ScalarProperty Name="SOKMDI" ColumnName="SOKMDI" />
+          <ScalarProperty Name="LOTRINHVE" ColumnName="LOTRINHVE" />
+          <ScalarProperty Name="SOKMVE" ColumnName="SOKMVE" />
+          <ScalarProperty Name="GHICHUDUYET" ColumnName="GHICHUDUYET" />
+          <ScalarProperty Name="SOLUONGDOAN" ColumnName="SOLUONGDOAN" />
+          <ScalarProperty Name="CHUTRIDOAN" ColumnName="CHUTRIDOAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOAs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.KHOA">
+        <MappingFragment StoreEntitySet="KHOA">
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="SDTKHOA" ColumnName="SDTKHOA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIXEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.LOAIXE">
+        <MappingFragment StoreEntitySet="LOAIXE">
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANCONGs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.PHANCONG">
+        <MappingFragment StoreEntitySet="PHANCONG">
+          <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIKHACs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.PHIKHAC">
+        <MappingFragment StoreEntitySet="PHIKHAC">
+          <ScalarProperty Name="HOADONPHI" ColumnName="HOADONPHI" />
+          <ScalarProperty Name="MAPHI" ColumnName="MAPHI" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NOIDUNGPHI" ColumnName="NOIDUNGPHI" />
+          <ScalarProperty Name="TONGPHI" ColumnName="TONGPHI" />
+          <ScalarProperty Name="NGAYTHUCHIEN" ColumnName="NGAYTHUCHIEN" />
+          <ScalarProperty Name="NOITHUCHIEN" ColumnName="NOITHUCHIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUACHUAs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.SUACHUA">
+        <MappingFragment StoreEntitySet="SUACHUA">
+          <ScalarProperty Name="MASUACHUA" ColumnName="MASUACHUA" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NOISUA" ColumnName="NOISUA" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QUANLYXEModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIXEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.TAIXE">
+        <MappingFragment StoreEntitySet="TAIXE">
+          <ScalarProperty Name="TENDNTX" ColumnName="TENDNTX" />
+          <ScalarProperty Name="MACHUCVU" ColumnName="MACHUCVU" />
+          <ScalarProperty Name="MATKHAUTX" ColumnName="MATKHAUTX" />
+          <ScalarProperty Name="HOTENTX" ColumnName="HOTENTX" />
+          <ScalarProperty Name="NAMSINHTX" ColumnName="NAMSINHTX" />
+          <ScalarProperty Name="DIACHITX" ColumnName="DIACHITX" />
+          <ScalarProperty Name="SDTTX" ColumnName="SDTTX" />
+          <ScalarProperty Name="CMNDTX" ColumnName="CMNDTX" />
+          <ScalarProperty Name="SOBANGLAI" ColumnName="SOBANGLAI" />
+          <ScalarProperty Name="HANBANGLAI" ColumnName="HANBANGLAI" />
+          <ScalarProperty Name="NOICAPBL" ColumnName="NOICAPBL" />
+          <ScalarProperty Name="NGAYCAPBL" ColumnName="NGAYCAPBL" />
+          <ScalarProperty Name="NGAYHETHANBL" ColumnName="NGAYHETHANBL" />
+          <ScalarProperty Name="CHANDUNG" ColumnName="CHANDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGKETHANGs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.THONGKETHANG">
+        <MappingFragment StoreEntitySet="THONGKETHANG">
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="SOCHUYEN" ColumnName="SOCHUYEN" />
+          <ScalarProperty Name="SOKM" ColumnName="SOKM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGXEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.TINHTRANGXE">
+        <MappingFragment StoreEntitySet="TINHTRANGXE">
+          <ScalarProperty Name="MATINHTRANG" ColumnName="MATINHTRANG" />
+          <ScalarProperty Name="TENTINHTRANG" ColumnName="TENTINHTRANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANGTHAIXEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.TRANGTHAIXE">
+        <MappingFragment StoreEntitySet="TRANGTHAIXE">
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="QUANLYXEModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="MACHUCVU" ColumnName="MACHUCVU" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NAMSINH" ColumnName="NAMSINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XANGLOPs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.XANGLOP">
+        <MappingFragment StoreEntitySet="XANGLOP">
+          <ScalarProperty Name="MAXANGLOP" ColumnName="MAXANGLOP" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="DIADIEM" ColumnName="DIADIEM" />
+          <ScalarProperty Name="NGAYDO" ColumnName="NGAYDO" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="ANHHOADON" ColumnName="ANHHOADON" />
+          <ScalarProperty Name="LOAIHINH" ColumnName="LOAIHINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.XE">
+        <MappingFragment StoreEntitySet="XE">
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="MATINHTRANG" ColumnName="MATINHTRANG" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="HOPSO" ColumnName="HOPSO" />
+          <ScalarProperty Name="NHIENLIEU" ColumnName="NHIENLIEU" />
+          <ScalarProperty Name="HANLUUHANH" ColumnName="HANLUUHANH" />
+          <ScalarProperty Name="HANBAOHIEM" ColumnName="HANBAOHIEM" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phancongtxes">
+      <EntityTypeMapping TypeName="QUANLYXEModel.Phancongtx">
+        <MappingFragment StoreEntitySet="Phancongtx">
+          <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+          <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="TENDNTX" ColumnName="TENDNTX" />
+          <ScalarProperty Name="HOTENTX" ColumnName="HOTENTX" />
+          <ScalarProperty Name="CHANDUNG" ColumnName="CHANDUNG" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongtinDatxes">
+      <EntityTypeMapping TypeName="QUANLYXEModel.ThongtinDatxe">
+        <MappingFragment StoreEntitySet="ThongtinDatxe">
+          <ScalarProperty Name="MADX" ColumnName="MADX" />
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NGAYDX" ColumnName="NGAYDX" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+          <ScalarProperty Name="GIODI" ColumnName="GIODI" />
+          <ScalarProperty Name="GIOVE" ColumnName="GIOVE" />
+          <ScalarProperty Name="CHUTRIDOAN" ColumnName="CHUTRIDOAN" />
+          <ScalarProperty Name="SOLUONGDOAN" ColumnName="SOLUONGDOAN" />
+          <ScalarProperty Name="LOTRINHDI" ColumnName="LOTRINHDI" />
+          <ScalarProperty Name="LOTRINHVE" ColumnName="LOTRINHVE" />
+          <ScalarProperty Name="SOKMDI" ColumnName="SOKMDI" />
+          <ScalarProperty Name="SOKMVE" ColumnName="SOKMVE" />
+          <ScalarProperty Name="GHICHUDUYET" ColumnName="GHICHUDUYET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thongtinxes">
+      <EntityTypeMapping TypeName="QUANLYXEModel.Thongtinxe">
+        <MappingFragment StoreEntitySet="Thongtinxe">
+          <ScalarProperty Name="MATINHTRANG" ColumnName="MATINHTRANG" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+          <ScalarProperty Name="HOPSO" ColumnName="HOPSO" />
+          <ScalarProperty Name="NHIENLIEU" ColumnName="NHIENLIEU" />
+          <ScalarProperty Name="TENTINHTRANG" ColumnName="TENTINHTRANG" />
+          <ScalarProperty Name="HANLUUHANH" ColumnName="HANLUUHANH" />
+          <ScalarProperty Name="HANBAOHIEM" ColumnName="HANBAOHIEM" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_DatxeTaixe">
+      <EntityTypeMapping TypeName="QUANLYXEModel.v_DatxeTaixe">
+        <MappingFragment StoreEntitySet="v_DatxeTaixe">
+          <ScalarProperty Name="TENDNTX" ColumnName="TENDNTX" />
+          <ScalarProperty Name="HOTENTX" ColumnName="HOTENTX" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYDX" ColumnName="NGAYDX" />
+          <ScalarProperty Name="MADX" ColumnName="MADX" />
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="LOTRINHDI" ColumnName="LOTRINHDI" />
+          <ScalarProperty Name="SOKMDI" ColumnName="SOKMDI" />
+          <ScalarProperty Name="LOTRINHVE" ColumnName="LOTRINHVE" />
+          <ScalarProperty Name="SOKMVE" ColumnName="SOKMVE" />
+          <ScalarProperty Name="CHANDUNG" ColumnName="CHANDUNG" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Suachua">
+      <EntityTypeMapping TypeName="QUANLYXEModel.v_Suachua">
+        <MappingFragment StoreEntitySet="v_Suachua">
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NOISUA" ColumnName="NOISUA" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="NOIDUNGSC" ColumnName="NOIDUNGSC" />
+          <ScalarProperty Name="SOLUONGSC" ColumnName="SOLUONGSC" />
+          <ScalarProperty Name="TONGTIENSC" ColumnName="TONGTIENSC" />
+          <ScalarProperty Name="GHICHUSC" ColumnName="GHICHUSC" />
+          <ScalarProperty Name="MASUACHUA" ColumnName="MASUACHUA" />
+          <ScalarProperty Name="MACTSC" ColumnName="MACTSC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Taikhoan">
+      <EntityTypeMapping TypeName="QUANLYXEModel.v_Taikhoan">
+        <MappingFragment StoreEntitySet="v_Taikhoan">
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="MACHUCVU" ColumnName="MACHUCVU" />
+          <ScalarProperty Name="TENCHUCVU" ColumnName="TENCHUCVU" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NAMSINH" ColumnName="NAMSINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QUANLYXEModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QUANLYXEModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QUANLYXEModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QUANLYXEModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QUANLYXEModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Quyenuserksd" FunctionName="QUANLYXEModel.Store.sp_Quyenuserksd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_Quyenuserksd_Result">
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+          <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Quyenusersd" FunctionName="QUANLYXEModel.Store.sp_Quyenusersd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_Quyenusersd_Result">
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+          <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QUANLYXEModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_TKChuyendi" FunctionName="QUANLYXEModel.Store.sp_TKChuyendi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_TKChuyendi_Result">
+          <ScalarProperty Name="MADX" ColumnName="MADX" />
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
+          <ScalarProperty Name="TENKHOA" ColumnName="TENKHOA" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NGAYDX" ColumnName="NGAYDX" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+          <ScalarProperty Name="GIODI" ColumnName="GIODI" />
+          <ScalarProperty Name="GIOVE" ColumnName="GIOVE" />
+          <ScalarProperty Name="CHUTRIDOAN" ColumnName="CHUTRIDOAN" />
+          <ScalarProperty Name="SOLUONGDOAN" ColumnName="SOLUONGDOAN" />
+          <ScalarProperty Name="LOTRINHDI" ColumnName="LOTRINHDI" />
+          <ScalarProperty Name="LOTRINHVE" ColumnName="LOTRINHVE" />
+          <ScalarProperty Name="SOKMDI" ColumnName="SOKMDI" />
+          <ScalarProperty Name="SOKMVE" ColumnName="SOKMVE" />
+          <ScalarProperty Name="GHICHUDUYET" ColumnName="GHICHUDUYET" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_TKThang" FunctionName="QUANLYXEModel.Store.sp_TKThang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_TKThang_Result">
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="SOCHUYEN" ColumnName="SOCHUYEN" />
+          <ScalarProperty Name="SOKM" ColumnName="SOKM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QUANLYXEModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_Xechuadat" FunctionName="QUANLYXEModel.Store.sp_Xechuadat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_Xechuadat_Result">
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="TENTINHTRANG" ColumnName="TENTINHTRANG" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+          <ScalarProperty Name="SOCHUYEN" ColumnName="SOCHUYEN" />
+          <ScalarProperty Name="SOKM" ColumnName="SOKM" />
+          <ScalarProperty Name="NHIENLIEU" ColumnName="NHIENLIEU" />
+          <ScalarProperty Name="HOPSO" ColumnName="HOPSO" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Xedadat" FunctionName="QUANLYXEModel.Store.sp_Xedadat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_Xedadat_Result">
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="TENTINHTRANG" ColumnName="TENTINHTRANG" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="MALOAIXE" ColumnName="MALOAIXE" />
+          <ScalarProperty Name="TENLOAIXE" ColumnName="TENLOAIXE" />
+          <ScalarProperty Name="SOCHUYEN" ColumnName="SOCHUYEN" />
+          <ScalarProperty Name="SOKM" ColumnName="SOKM" />
+          <ScalarProperty Name="NHIENLIEU" ColumnName="NHIENLIEU" />
+          <ScalarProperty Name="HOPSO" ColumnName="HOPSO" />
+          <ScalarProperty Name="HINHXE" ColumnName="HINHXE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spNgaylamtx" FunctionName="QUANLYXEModel.Store.spNgaylamtx">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.spNgaylamtx_Result">
+          <ScalarProperty Name="TENDNTX" ColumnName="TENDNTX" />
+          <ScalarProperty Name="HOTENTX" ColumnName="HOTENTX" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+          <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+          <ScalarProperty Name="NHANHIEU" ColumnName="NHANHIEU" />
+          <ScalarProperty Name="BIENSO" ColumnName="BIENSO" />
+          <ScalarProperty Name="TENTRANGTHAI" ColumnName="TENTRANGTHAI" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYDX" ColumnName="NGAYDX" />
+          <ScalarProperty Name="MADX" ColumnName="MADX" />
+          <ScalarProperty Name="MATRANGTHAI" ColumnName="MATRANGTHAI" />
+          <ScalarProperty Name="CHANDUNG" ColumnName="CHANDUNG" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="PHANQUYENs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.PHANQUYEN">
+        <MappingFragment StoreEntitySet="PHANQUYEN">
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUYENHANs">
+      <EntityTypeMapping TypeName="QUANLYXEModel.QUYENHAN">
+        <MappingFragment StoreEntitySet="QUYENHAN">
+          <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_CTTKThang" FunctionName="QUANLYXEModel.Store.sp_CTTKThang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYXEModel.sp_CTTKThang_Result">
+          <ScalarProperty Name="SOKMDI" ColumnName="SOKMDI" />
+          <ScalarProperty Name="SOKMVE" ColumnName="SOKMVE" />
+          <ScalarProperty Name="NGAYDI" ColumnName="NGAYDI" />
+          <ScalarProperty Name="NGAYVE" ColumnName="NGAYVE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

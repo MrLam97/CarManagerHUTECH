@@ -1,0 +1,21 @@
+﻿@model IEnumerable<QuanLyXe.Models.v_DatxeTaixe>
+
+@foreach (var item in Model)
+{
+
+    <ul class="messages">
+        <li>
+            <a href="~/Content/Hinhtaixe/@item.CHANDUNG" target="_blank"><img src="~/Content/Hinhtaixe/@item.CHANDUNG" class="avatar" alt="Avatar"></a>
+            <div class="message_date">
+                <h3 class="date text-info">@item.NGAYDI.Value.Day</h3>
+                <p class="month"> Tháng @item.NGAYDI.Value.Month</p>
+            </div>
+            <div class="message_wrapper">
+                <h4 class="heading">@item.HOTENTX</h4>
+                <blockquote class="message">@item.LOTRINHDI (@item.SOKMDI KM). @item.LOTRINHVE (@item.SOKMVE KM)</blockquote>
+                <br />
+            </div>
+        </li>
+
+    </ul>
+}

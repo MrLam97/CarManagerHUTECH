@@ -1,0 +1,223 @@
+﻿@model QuanLyXe.Models.Thongtinxe
+
+@{
+    ViewBag.Title = "Chitietxe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Thông tin xe</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Tìm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Chi tiết</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+                                <!-- Current avatar -->
+                                <a href="~/Content/Hinhxe/@Model.HINHXE" target="_blank"><img class="img-responsive avatar-view" src="~/Content/Hinhxe/@Model.HINHXE" alt="Avatar" title="Change the avatar"></a>
+                            </div>
+                        </div>
+                        <h3>Mã xe: @Model.MAXE | @Model.BIENSO</h3>
+
+                        <ul class="list-unstyled user_data">
+                            <li><i class="fa fa-automobile"></i> Nhãn hiệu: @Model.NHANHIEU @Model.TENLOAIXE</li>
+                            <li><i class="fa fa-fire-extinguisher"></i> Nhiên liệu: @Model.NHIENLIEU</li>
+                            <li><i class="fa fa-tachometer"></i> Hộp số: @Model.HOPSO</li>
+                            <li><i class="fa fa-tachometer"></i> Tình trạng: @Model.TENTINHTRANG</li>
+                            <li><i class="fa fa-calendar"></i> Hạn bảo hiểm: @Model.HANBAOHIEM.Value.Day/@Model.HANBAOHIEM.Value.Month/@Model.HANBAOHIEM.Value.Year</li>
+                            <li><i class="fa fa-calendar"></i> Hạn lưu hành: @Model.HANLUUHANH.Value.Day/@Model.HANLUUHANH.Value.Month/@Model.HANLUUHANH.Value.Year</li>
+                        </ul>
+
+                        <button type="button" class="btn btn-success fa fa-edit m-right-xs" data-toggle="modal" data-target="#exampleModal">
+                            Sửa thông tin
+                        </button>
+                        <br />
+                        <!-- Modal -->
+                        @using (Html.BeginForm("Chitietxe", "Xe", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sửa</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="form-horizontal">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.TENLOAIXE, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("MaLX", null, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.TENTINHTRANG, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("MaTT", null, new { @class = "form-control" })
+                                                    </div>
+                                                </div>    
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.BIENSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.BIENSO, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.BIENSO, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.NHANHIEU, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.NHANHIEU, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.NHANHIEU, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HOPSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.HOPSO, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.HOPSO, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.NHIENLIEU, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.NHIENLIEU, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.NHIENLIEU, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HANBAOHIEM, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.HANBAOHIEM, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.HANBAOHIEM, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HANLUUHANH, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.HANLUUHANH, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.HANLUUHANH, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.HINHXE, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="fileUpload" />
+                                                        <div style="color:red">@ViewBag.Thongbao</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- start skills -->
+                        <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                        <div class="profile_title">
+                            <div class="col-md-6">
+                                <h2>Hoạt động</h2>
+                            </div>
+                        </div>
+                        <!-- start of user-activity-graph -->
+                        @Html.Action("Thongkethang", "Xe")
+                        <!-- end of user-activity-graph -->
+
+                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Hoạt động gần đây</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Chi phí sửa chữa gần đây</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                    <!-- start recent activity -->
+                                    @Html.Action("Hoatdongganday", "Xe")
+                                    <!-- end recent activity -->
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                    <!-- start user projects -->
+                                    @Html.Action("ThongtinXanglop", "Xe")
+                                    @Html.Action("ThongtinSuachua", "Xe")
+                                    @Html.Action("ThongtinPhikhac", "Xe")
+                                    <!-- end user projects -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

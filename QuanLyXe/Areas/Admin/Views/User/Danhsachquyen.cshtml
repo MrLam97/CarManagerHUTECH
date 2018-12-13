@@ -1,0 +1,11 @@
+﻿@model IEnumerable<QuanLyXe.Models.QUYENHAN>
+
+<ul id="quyen">
+    @foreach (var item in Model)
+    {
+        <li>
+            <input type="checkbox" value="@item.MAQUYEN" /> @item.TENQUYEN
+        </li>
+    }
+</ul>
+

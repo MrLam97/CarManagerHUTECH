@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<QuanLyXe.Models.spNgaylamtx_Result>
+
+<li role="presentation" class="dropdown">
+    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-envelope-o"></i>
+        <span class="badge bg-green">@ViewBag.dem</span>
+    </a>
+    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="#">
+                    <span>
+                        <span>@item.HOTEN</span>
+                        <span class="time">@item.NGAYDX</span>
+                    </span>
+                    <span class="message">
+                        đã đặt xe @item.MAXE: @item.BIENSO vào ngày @item.NGAYDI.Value.Day/@item.NGAYDI.Value.Month/@item.NGAYDI.Value.Year...
+                    </span>
+                </a>
+            </li>
+        }
+        <li>
+            <div class="text-center">
+                <a href="@Url.Action("Thongtindatxe","DatxeTX")">
+                    <strong>Xem tất cả</strong>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </li>
+    </ul>
+</li>

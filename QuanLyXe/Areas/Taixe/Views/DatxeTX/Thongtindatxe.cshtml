@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QuanLyXe.Models.spNgaylamtx_Result>
+
+@{
+    ViewBag.Title = "Thongtindatxe";
+    Layout = "~/Areas/Taixe/Views/Shared/_LayoutTaixe.cshtml";
+}
+
+@using (Html.BeginForm("Thongtindatxe", "DatxeTX"))
+{
+    <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông tin đặt xe</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Tên tài xế</th>
+                        <th>Ngày đi</th>
+                        <th>Ngày về</th>
+                        <th>Mã xe</th>
+                        <th>Nhãn hiệu</th>
+                        <th>Biển số</th>
+                        <th>Trạng thái</th>
+                        <th>Chọn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.HOTENTX</td>
+                            <td>@item.NGAYDI.Value.Day/@item.NGAYDI.Value.Month/@item.NGAYDI.Value.Year</td>
+                            <td>@item.NGAYVE.Value.Day/@item.NGAYVE.Value.Month/@item.NGAYVE.Value.Year</td>
+                            <td>@item.MAXE</td>
+                            <td>@item.NHANHIEU</td>
+                            <td>@item.BIENSO</td>
+                            <td style="color:red" id="@item.MADX+tt">@item.TENTRANGTHAI</td>
+                            <td>
+                                @if (item.MATRANGTHAI == 3)
+                                {
+                                    <button class="btn btn-success" data-iddxtx="@item.MADX" id="LuuTT">Bắt đầu</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-success" data-iddxtx="@item.MADX" id="LuuTT" disabled>Bắt đầu</button>
+                                }
+                                <button class="btn btn-danger" data-iddxtxkt="@item.MADX" id="LuuTTKT">Kết thúc</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+}

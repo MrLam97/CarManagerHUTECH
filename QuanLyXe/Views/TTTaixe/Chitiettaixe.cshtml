@@ -1,0 +1,125 @@
+﻿@model QuanLyXe.Models.TAIXE
+
+@{
+    ViewBag.Title = "Chitiettaixe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Thông tin tài xế</h3>
+        </div>
+
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Tìm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Chi tiết</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+                                <!-- Current avatar -->
+                                <a href="~/Content/Hinhtaixe/@Model.CHANDUNG" target="_blank"><img class="img-responsive avatar-view" src="~/Content/Hinhtaixe/@Model.CHANDUNG" alt="Avatar" title="Change the avatar"></a>
+                            </div>
+                        </div>
+                        <h3>@Model.HOTENTX</h3>
+
+                        <ul class="list-unstyled user_data">
+                            <li><i class="fa fa-calendar"></i> Ngày sinh: @Model.NAMSINHTX.Value.Day/@Model.NAMSINHTX.Value.Month/@Model.NAMSINHTX.Value.Year</li>
+                            <li><i class="fa fa-map-marker"></i> Địa chỉ: @Model.DIACHITX</li>
+                            <li><i class="fa fa-phone"></i> SDT: @Model.SDTTX</li>
+                            <li><i class="fa fa-at"></i> Số bằng lái: @Model.SOBANGLAI</li>
+                            <li><i class="fa fa-at"></i> Hạng bằng lái: @Model.HANBANGLAI</li>
+                            <li><i class="fa fa-map-marker"></i> Nơi cấp: @Model.NOICAPBL</li>
+                            <li><i class="fa fa-calendar"></i> Ngày cấp: @Model.NGAYCAPBL.Value.Day/@Model.NGAYCAPBL.Value.Month/@Model.NGAYCAPBL.Value.Year</li>
+                            <li><i class="fa fa-calendar"></i> Ngày hết hạn: @Model.NGAYHETHANBL.Value.Day/@Model.NGAYHETHANBL.Value.Month/@Model.NGAYHETHANBL.Value.Year</li>
+                        </ul>
+
+                        <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                        <br />
+
+                        <!-- start skills -->
+                        <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                        <div class="profile_title">
+                            <div class="col-md-6">
+                                <h2>Hoạt động</h2>
+                            </div>
+                        </div>
+                        <!-- start of user-activity-graph -->
+                        <!-- end of user-activity-graph -->
+
+                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Hoạt động gần đây</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Lịch làm việc</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                    <!-- start recent activity -->
+                                    @Html.Action("HoatdongTX", "TTTaixe")
+                                    <!-- end recent activity -->
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                    <!-- start user projects -->
+                                    @Html.Action("Lichlamviec", "TTTaixe")
+                                    @Html.Action("Thongtindatxe", "TTTaixe")
+                                    <!-- end user projects -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

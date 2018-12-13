@@ -1,0 +1,84 @@
+﻿
+@model IEnumerable<QuanLyXe.Models.ThongtinDatxe>
+
+<li role="presentation" class="dropdown">
+    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-envelope-o"></i>
+        <span class="badge bg-green">@ViewBag.dem</span>
+    </a>
+    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+
+
+        @foreach (var item in Model)
+        {
+            <li>
+                @if (ViewBag.quyen == 17)
+                {
+                    <a href="@Url.Action("Lichsudatnv", "Datxe")">
+                        <span>
+                            <span>@item.HOTEN</span>
+                            <span class="time">@item.NGAYDX</span>
+                        </span>
+                        <span class="message">
+                            đã đặt xe @item.TENLOAIXE vào ngày @item.NGAYDI.Value.Day/@item.NGAYDI.Value.Month/@item.NGAYDI.Value.Year...
+                        </span>
+                    </a>
+                }
+                @if (ViewBag.quyen == 18)
+                {
+                    <a href="@Url.Action("Duyetdexuat", "Datxe", new { id = item.MADX })">
+                        <span>
+                            <span>@item.HOTEN</span>
+                            <span class="time">@item.NGAYDX</span>
+                        </span>
+                        <span class="message">
+                            đã đặt xe @item.TENLOAIXE vào ngày @item.NGAYDI.Value.Day/@item.NGAYDI.Value.Month/@item.NGAYDI.Value.Year...
+                        </span>
+                    </a>
+                }
+                @if (ViewBag.quyen == 19)
+                {
+                    <a href="@Url.Action("Xulidatxe", "Datxe", new { id = item.MADX })">
+                        <span>
+                            <span>@item.HOTEN</span>
+                            <span class="time">@item.NGAYDX</span>
+                        </span>
+                        <span class="message">
+                            đã đặt xe @item.TENLOAIXE vào ngày @item.NGAYDI.Value.Day/@item.NGAYDI.Value.Month/@item.NGAYDI.Value.Year...
+                        </span>
+                    </a>
+                }
+                
+            </li>
+        }
+        <li>
+            <div class="text-center">
+                @if (ViewBag.quyen == 17)
+                {
+                    <a href="@Url.Action("Lichsudatnv","Datxe")">
+                        <strong>Xem tất cả</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                }
+
+                @if (ViewBag.quyen == 18)
+                {
+                    <a href="@Url.Action("Thongtindexuat","Datxe")">
+                        <strong>Xem tất cả</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                }
+
+                @if (ViewBag.quyen == 19)
+                {
+                    <a href="@Url.Action("Thongtindatxe","Datxe")">
+                        <strong>Xem tất cả</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                }
+            </div>
+        </li>
+    </ul>
+</li>
+
+

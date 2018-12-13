@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLyXeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="TenDN" />
+    </Key>
+    <Property Name="TenDN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+    <Property Name="TenAdmin" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLyXe.dbo.CHITIETDATXE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CHITIETDATXE">
+    <Key>
+      <PropertyRef Name="MADX" />
+    </Key>
+    <Property Name="MADX" Type="int" Nullable="false" />
+    <Property Name="LOAIXEDAT" Type="int" />
+    <Property Name="MAXEDAT" Type="int" />
+    <Property Name="NGAYDI" Type="datetime" />
+    <Property Name="NGAYVE" Type="datetime" />
+    <Property Name="THANHPHAN" Type="nvarchar" MaxLength="100" />
+    <Property Name="LOTRINHDI" Type="nvarchar" MaxLength="200" />
+    <Property Name="SOKMDI" Type="int" />
+    <Property Name="LOTRINHVE" Type="nvarchar" MaxLength="200" />
+    <Property Name="SOKMVE" Type="int" />
+    <Property Name="TRANGTHAIDATXE" Type="int" />
+    <Property Name="GHICHUDUYET" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLyXe.dbo.CHITIETSC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CHITIETSC">
+    <Key>
+      <PropertyRef Name="MAPSC" />
+    </Key>
+    <Property Name="MAPSC" Type="int" Nullable="false" />
+    <Property Name="NOIDUNG" Type="nvarchar" MaxLength="100" />
+    <Property Name="SOLUONGSC" Type="int" />
+    <Property Name="DONGIASC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="THANHTIENSC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GHICHU" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACV" />
+    </Key>
+    <Property Name="MACV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CHUCVUNV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DATXE">
+    <Key>
+      <PropertyRef Name="MADX" />
+    </Key>
+    <Property Name="MADX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGAYDATXE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="MALOAIXE" />
+    </Key>
+    <Property Name="MALOAIXE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG">
+    <Key>
+      <PropertyRef Name="TENDN" />
+    </Key>
+    <Property Name="TENDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENND" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAILND" Type="nvarchar" MaxLength="50" />
+    <Property Name="MATKHAUND" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDTND" Type="numeric" Precision="11" Scale="0" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MACV" Type="int" Nullable="false" />
+    <Property Name="TENNV" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAMSINHNV" Type="datetime" />
+    <Property Name="SDTNV" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="NOISINHNV" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PHIEUSUACHUA">
+    <Key>
+      <PropertyRef Name="MAPSC" />
+    </Key>
+    <Property Name="MAPSC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAXE" Type="int" Nullable="false" />
+    <Property Name="NOISUA" Type="nvarchar" MaxLength="100" />
+    <Property Name="NGAYBD" Type="datetime" />
+    <Property Name="NGAYKT" Type="datetime" />
+    <Property Name="NGUOIPHUTRACH" Type="int" />
+    <Property Name="KETOAN" Type="int" />
+  </EntityType>
+  <EntityType Name="PHIEUXANGDAU">
+    <Key>
+      <PropertyRef Name="MAPXD" />
+    </Key>
+    <Property Name="MAPXD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAXE" Type="int" Nullable="false" />
+    <Property Name="NOIDO" Type="nvarchar" MaxLength="100" />
+    <Property Name="VAT" Type="float" />
+    <Property Name="NGAYDO" Type="datetime" />
+    <Property Name="NGUOIDO" Type="nvarchar" MaxLength="50" />
+    <Property Name="KETOANX" Type="int" />
+    <Property Name="SOLUONG" Type="float" />
+    <Property Name="DONGIA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="THANHTIEN" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TAIXE">
+    <Key>
+      <PropertyRef Name="MATX" />
+    </Key>
+    <Property Name="MATX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAXE" Type="int" />
+    <Property Name="TENTX" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAYSINH" Type="datetime" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="SOCMND" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="NGAYCAPCM" Type="datetime" />
+    <Property Name="NOICAPCM" Type="nvarchar" MaxLength="100" />
+    <Property Name="SOBANGLAI" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="HANGBL" Type="nvarchar" MaxLength="5" />
+    <Property Name="NGAYCAPBL" Type="datetime" />
+    <Property Name="NGAYHETHANBL" Type="datetime" />
+    <Property Name="NOICAPBL" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TRANGTHAIDATXE">
+    <Key>
+      <PropertyRef Name="MATTDX" />
+    </Key>
+    <Property Name="MATTDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TRANGTHAIDX" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TRANGTHAIXE">
+    <Key>
+      <PropertyRef Name="MATRANGTHAI" />
+    </Key>
+    <Property Name="MATRANGTHAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TTHAIXE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MALOAIXE" Type="int" Nullable="false" />
+    <Property Name="MATX" Type="int" Nullable="false" />
+    <Property Name="BIENSO" Type="text" />
+    <Property Name="NHANHIEU" Type="nvarchar" MaxLength="50" />
+    <Property Name="HOPSO" Type="nvarchar" MaxLength="20" />
+    <Property Name="NHIENLIEU" Type="nvarchar" MaxLength="20" />
+    <Property Name="HANLUUHANH" Type="datetime" />
+    <Property Name="HANBAOHIEM" Type="datetime" />
+    <Property Name="TRANGTHAI" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLyXe.dbo.Lichsudat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Lichsudat">
+    <Key>
+      <PropertyRef Name="MADX" />
+      <PropertyRef Name="TENDN" />
+    </Key>
+    <Property Name="MADX" Type="int" Nullable="false" />
+    <Property Name="TENDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENND" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAYDATXE" Type="datetime" />
+    <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="20" />
+    <Property Name="MAXEDAT" Type="int" />
+    <Property Name="NGAYDI" Type="datetime" />
+    <Property Name="NGAYVE" Type="datetime" />
+    <Property Name="THANHPHAN" Type="nvarchar" MaxLength="100" />
+    <Property Name="LOTRINHDI" Type="nvarchar" MaxLength="200" />
+    <Property Name="SOKMDI" Type="int" />
+    <Property Name="LOTRINHVE" Type="nvarchar" MaxLength="200" />
+    <Property Name="SOKMVE" Type="int" />
+    <Property Name="TRANGTHAIDX" Type="nvarchar" MaxLength="20" />
+    <Property Name="GHICHUDUYET" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLyXe.dbo.ThongTinXe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ThongTinXe">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="int" Nullable="false" />
+    <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="20" />
+    <Property Name="TENTX" Type="nvarchar" MaxLength="50" />
+    <Property Name="BIENSO" Type="text" />
+    <Property Name="NHANHIEU" Type="nvarchar" MaxLength="50" />
+    <Property Name="HOPSO" Type="nvarchar" MaxLength="20" />
+    <Property Name="NHIENLIEU" Type="nvarchar" MaxLength="20" />
+    <Property Name="HANLUUHANH" Type="datetime" />
+    <Property Name="HANBAOHIEM" Type="datetime" />
+    <Property Name="TTHAIXE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLyXe.dbo.Xedaduyet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Xedaduyet">
+    <Key>
+      <PropertyRef Name="MAXE" />
+    </Key>
+    <Property Name="MAXE" Type="int" Nullable="false" />
+    <Property Name="TENLOAIXE" Type="nvarchar" MaxLength="20" />
+    <Property Name="BIENSO" Type="text" />
+    <Property Name="NHANHIEU" Type="nvarchar" MaxLength="50" />
+    <Property Name="HANLUUHANH" Type="datetime" />
+    <Property Name="HANBAOHIEM" Type="datetime" />
+    <Property Name="TRANGTHAI" Type="int" />
+    <Property Name="NGAYDI" Type="datetime" />
+    <Property Name="NGAYVE" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_CHITIETD_THONGTIND_DATXE">
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="1" />
+    <End Role="CHITIETDATXE" Type="Self.CHITIETDATXE" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DATXE">
+        <PropertyRef Name="MADX" />
+      </Principal>
+      <Dependent Role="CHITIETDATXE">
+        <PropertyRef Name="MADX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETS_SUAN_PHIEUSUA">
+    <End Role="PHIEUSUACHUA" Type="Self.PHIEUSUACHUA" Multiplicity="1" />
+    <End Role="CHITIETSC" Type="Self.CHITIETSC" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUSUACHUA">
+        <PropertyRef Name="MAPSC" />
+      </Principal>
+      <Dependent Role="CHITIETSC">
+        <PropertyRef Name="MAPSC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATXE_DAT_NGUOIDUN">
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+    <End Role="DATXE" Type="Self.DATXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="TENDN" />
+      </Principal>
+      <Dependent Role="DATXE">
+        <PropertyRef Name="TENDN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_CUA_CHUCVU">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MACV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUSUA_SUA_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="PHIEUSUACHUA" Type="Self.PHIEUSUACHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="PHIEUSUACHUA">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUXAN_DO_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="PHIEUXANGDAU" Type="Self.PHIEUXANGDAU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="PHIEUXANGDAU">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TAIXE_QUANLY_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+    <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="MAXE" />
+      </Principal>
+      <Dependent Role="TAIXE">
+        <PropertyRef Name="MAXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XE_CO_LOAIXE">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="MALOAIXE" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MALOAIXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XE_QUANLY2_TAIXE">
+    <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIXE">
+        <PropertyRef Name="MATX" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MATX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Xechuadat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Loaixe" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="QLyXeModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DATXE" EntityType="Self.DATXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUSUACHUA" EntityType="Self.PHIEUSUACHUA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUXANGDAU" EntityType="Self.PHIEUXANGDAU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIXE" EntityType="Self.TAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANGTHAIDATXE" EntityType="Self.TRANGTHAIDATXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANGTHAIXE" EntityType="Self.TRANGTHAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETDATXE" EntityType="Self.CHITIETDATXE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CHITIETDATXE].[MADX] AS [MADX], 
+    [CHITIETDATXE].[LOAIXEDAT] AS [LOAIXEDAT], 
+    [CHITIETDATXE].[MAXEDAT] AS [MAXEDAT], 
+    [CHITIETDATXE].[NGAYDI] AS [NGAYDI], 
+    [CHITIETDATXE].[NGAYVE] AS [NGAYVE], 
+    [CHITIETDATXE].[THANHPHAN] AS [THANHPHAN], 
+    [CHITIETDATXE].[LOTRINHDI] AS [LOTRINHDI], 
+    [CHITIETDATXE].[SOKMDI] AS [SOKMDI], 
+    [CHITIETDATXE].[LOTRINHVE] AS [LOTRINHVE], 
+    [CHITIETDATXE].[SOKMVE] AS [SOKMVE], 
+    [CHITIETDATXE].[TRANGTHAIDATXE] AS [TRANGTHAIDATXE], 
+    [CHITIETDATXE].[GHICHUDUYET] AS [GHICHUDUYET]
+    FROM [dbo].[CHITIETDATXE] AS [CHITIETDATXE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CHITIETSC" EntityType="Self.CHITIETSC" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CHITIETSC].[MAPSC] AS [MAPSC], 
+    [CHITIETSC].[NOIDUNG] AS [NOIDUNG], 
+    [CHITIETSC].[SOLUONGSC] AS [SOLUONGSC], 
+    [CHITIETSC].[DONGIASC] AS [DONGIASC], 
+    [CHITIETSC].[THANHTIENSC] AS [THANHTIENSC], 
+    [CHITIETSC].[GHICHU] AS [GHICHU]
+    FROM [dbo].[CHITIETSC] AS [CHITIETSC]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Lichsudat" EntityType="Self.Lichsudat" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Lichsudat].[MADX] AS [MADX], 
+    [Lichsudat].[TENDN] AS [TENDN], 
+    [Lichsudat].[TENND] AS [TENND], 
+    [Lichsudat].[NGAYDATXE] AS [NGAYDATXE], 
+    [Lichsudat].[TENLOAIXE] AS [TENLOAIXE], 
+    [Lichsudat].[MAXEDAT] AS [MAXEDAT], 
+    [Lichsudat].[NGAYDI] AS [NGAYDI], 
+    [Lichsudat].[NGAYVE] AS [NGAYVE], 
+    [Lichsudat].[THANHPHAN] AS [THANHPHAN], 
+    [Lichsudat].[LOTRINHDI] AS [LOTRINHDI], 
+    [Lichsudat].[SOKMDI] AS [SOKMDI], 
+    [Lichsudat].[LOTRINHVE] AS [LOTRINHVE], 
+    [Lichsudat].[SOKMVE] AS [SOKMVE], 
+    [Lichsudat].[TRANGTHAIDX] AS [TRANGTHAIDX], 
+    [Lichsudat].[GHICHUDUYET] AS [GHICHUDUYET]
+    FROM [dbo].[Lichsudat] AS [Lichsudat]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ThongTinXe" EntityType="Self.ThongTinXe" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ThongTinXe].[MAXE] AS [MAXE], 
+    [ThongTinXe].[TENLOAIXE] AS [TENLOAIXE], 
+    [ThongTinXe].[TENTX] AS [TENTX], 
+    [ThongTinXe].[BIENSO] AS [BIENSO], 
+    [ThongTinXe].[NHANHIEU] AS [NHANHIEU], 
+    [ThongTinXe].[HOPSO] AS [HOPSO], 
+    [ThongTinXe].[NHIENLIEU] AS [NHIENLIEU], 
+    [ThongTinXe].[HANLUUHANH] AS [HANLUUHANH], 
+    [ThongTinXe].[HANBAOHIEM] AS [HANBAOHIEM], 
+    [ThongTinXe].[TTHAIXE] AS [TTHAIXE]
+    FROM [dbo].[ThongTinXe] AS [ThongTinXe]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Xedaduyet" EntityType="Self.Xedaduyet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Xedaduyet].[MAXE] AS [MAXE], 
+    [Xedaduyet].[TENLOAIXE] AS [TENLOAIXE], 
+    [Xedaduyet].[BIENSO] AS [BIENSO], 
+    [Xedaduyet].[NHANHIEU] AS [NHANHIEU], 
+    [Xedaduyet].[HANLUUHANH] AS [HANLUUHANH], 
+    [Xedaduyet].[HANBAOHIEM] AS [HANBAOHIEM], 
+    [Xedaduyet].[TRANGTHAI] AS [TRANGTHAI], 
+    [Xedaduyet].[NGAYDI] AS [NGAYDI], 
+    [Xedaduyet].[NGAYVE] AS [NGAYVE]
+    FROM [dbo].[Xedaduyet] AS [Xedaduyet]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CHITIETD_THONGTIND_DATXE" Association="Self.FK_CHITIETD_THONGTIND_DATXE">
+      <End Role="DATXE" EntitySet="DATXE" />
+      <End Role="CHITIETDATXE" EntitySet="CHITIETDATXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETS_SUAN_PHIEUSUA" Association="Self.FK_CHITIETS_SUAN_PHIEUSUA">
+      <End Role="PHIEUSUACHUA" EntitySet="PHIEUSUACHUA" />
+      <End Role="CHITIETSC" EntitySet="CHITIETSC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATXE_DAT_NGUOIDUN" Association="Self.FK_DATXE_DAT_NGUOIDUN">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+      <End Role="DATXE" EntitySet="DATXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_CUA_CHUCVU" Association="Self.FK_NHANVIEN_CUA_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUSUA_SUA_XE" Association="Self.FK_PHIEUSUA_SUA_XE">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="PHIEUSUACHUA" EntitySet="PHIEUSUACHUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUXAN_DO_XE" Association="Self.FK_PHIEUXAN_DO_XE">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="PHIEUXANGDAU" EntitySet="PHIEUXANGDAU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TAIXE_QUANLY_XE" Association="Self.FK_TAIXE_QUANLY_XE">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="TAIXE" EntitySet="TAIXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XE_CO_LOAIXE" Association="Self.FK_XE_CO_LOAIXE">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XE_QUANLY2_TAIXE" Association="Self.FK_XE_QUANLY2_TAIXE">
+      <End Role="TAIXE" EntitySet="TAIXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

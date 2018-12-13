@@ -1,0 +1,145 @@
+﻿@model QuanLyXe.Models.TAIXE
+
+@{
+    ViewBag.Title = "Themtaixe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@using (Html.BeginForm("Themtaixe", "Taixe", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Thêm tài xế</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="form-horizontal form-label-left input_mask">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Tên đăng nhập:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.TENDNTX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TENDNTX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Mật khẩu:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.MATKHAUTX, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.MATKHAUTX, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Họ tên:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.HOTENTX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HOTENTX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ngày sinh:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input class="date-picker form-control" name="ngaysinh" required="required" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ:</div>
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            @Html.EditorFor(model => model.DIACHITX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DIACHITX, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số điện thoại:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.SDTTX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SDTTX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số CMND:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.CMNDTX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CMNDTX, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số bằng lái:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.SOBANGLAI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SOBANGLAI, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Hạng bằng lái:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.EditorFor(model => model.HANBANGLAI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HANBANGLAI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ngày cấp:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input class="date-picker form-control" name="ngaycapbl" required="required" type="date">
+                        </div>
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ngày hết hạn:</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input class="date-picker form-control" name="ngayhethanbl" required="required" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Nơi cấp bằng lái:</div>
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            @Html.EditorFor(model => model.NOICAPBL, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NOICAPBL, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ảnh đại diện:</div>
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <input type="file" name="fileUpload" />
+                            <div style="color:red">@ViewBag.Thongbao</div>
+                            <div style="color:red">@ViewBag.Thongbao1</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 col-sm-10 col-xs-12">
+                            <button class="btn btn-primary" type="reset">Reset</button>
+                            <input type="submit" value="Thêm" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

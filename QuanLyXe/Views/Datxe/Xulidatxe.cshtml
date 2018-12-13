@@ -1,0 +1,192 @@
+﻿@model QuanLyXe.Models.ThongtinDatxe
+
+@{
+    ViewBag.Title = "Xulidatxe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@using (Html.BeginForm("Xulidatxe", "Datxe"))
+{
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Thông tin đặt xe</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Người đề xuất:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HOTEN)
+                        </dd>
+
+                        <dt>
+                            Loại xe đề xuất:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TENLOAIXE)
+                        </dd>
+
+                        <dt>
+                            Ngày đề xuất:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NGAYDX)
+                        </dd>
+
+                        <dt>
+                            Ngày khởi hành:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NGAYDI.Value.Day)/@Html.DisplayFor(model => model.NGAYDI.Value.Month)/@Html.DisplayFor(model => model.NGAYDI.Value.Year)
+                        </dd>
+
+                        <dt>
+                            Ngày về:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NGAYVE.Value.Day)/@Html.DisplayFor(model => model.NGAYVE.Value.Month)/@Html.DisplayFor(model => model.NGAYVE.Value.Year)
+                        </dd>
+
+                        <dt>
+                            Giờ khởi hành:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GIODI)
+                        </dd>
+
+                        <dt>
+                            Giờ về:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GIOVE)
+                        </dd>
+
+                        <dt>
+                            Người chủ trì:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CHUTRIDOAN)
+                        </dd>
+
+                        <dt>
+                            Số lượng đoàn:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SOLUONGDOAN)
+                        </dd>
+
+                        <dt>
+                            Lộ trình đi:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LOTRINHDI)
+                        </dd>
+
+                        <dt>
+                            Lộ trình về:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LOTRINHVE)
+                        </dd>
+
+                        <dt>
+                            Số KM đi:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SOKMDI)
+                        </dd>
+
+                        <dt>
+                            Số KM về:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SOKMVE)
+                        </dd>
+
+                    </dl>
+
+
+                </div>
+                <br />
+                <label>Ghi chú:</label>
+                <textarea id="message" class="form-control" name="message"></textarea>
+                <br />
+                <button class="btn btn-primary" data-huy="@Model.MADX" id="huydexuat">Hủy</button>
+                <button type="submit" class="btn btn-success">Duyệt</button>
+                <h4 style="color:red; text-align:center"> @ViewBag.Thongbao</h4>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Tình hình sử dụng xe: @Model.NGAYDI.Value.Day/@Model.NGAYDI.Value.Month/@Model.NGAYDI.Value.Year - @Model.NGAYVE.Value.Day/@Model.NGAYVE.Value.Month/@Model.NGAYVE.Value.Year</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+
+                    @Html.Action("Xechuadat", "Datxe")
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

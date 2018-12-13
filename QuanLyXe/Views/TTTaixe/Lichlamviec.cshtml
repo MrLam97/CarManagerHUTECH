@@ -1,0 +1,28 @@
+﻿@model IEnumerable<QuanLyXe.Models.Phancongtx>
+
+<h3>Lịch làm việc tháng @ViewBag.thang</h3>
+<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th>Mã xe</th>
+            <th>Nhãn hiệu</th>
+            <th>Biển số</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NGAYBATDAU</td>
+                <td>@item.NGAYKETTHUC</td>
+                <td style="color:blue;font-weight:bold"><a href="@Url.Action("Chitietxe","Xe",new { id=item.MAXE })">@item.MAXE</a></td>
+                <td>@item.NHANHIEU</td>
+                <td style="color:blue;font-weight:bold"><a href="@Url.Action("Chitietxe","Xe",new { id=item.MAXE })">@item.BIENSO</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

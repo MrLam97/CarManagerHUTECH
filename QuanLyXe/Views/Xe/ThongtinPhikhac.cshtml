@@ -1,0 +1,25 @@
+﻿@model IEnumerable<QuanLyXe.Models.PHIKHAC>
+
+<h3>Phí khác</h3>
+<table class="data table table-striped no-margin">
+    <thead>
+        <tr>
+            <th>Địa điểm</th>
+            <th>Nội dung</th>
+            <th>Tổng tiền</th>
+            <th>Ngày thực hiện</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.NOITHUCHIEN</td>
+                <td>@item.NOIDUNGPHI</td>
+                <td>@item.TONGPHI</td>
+                <td>@item.NGAYTHUCHIEN.Value.Day/@item.NGAYTHUCHIEN.Value.Month/@item.NGAYTHUCHIEN.Value.Year</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Khongduocphep";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="col-middle">
+        <div class="text-center text-center">
+            <h1 class="error-number">403</h1>
+            <h2>Bạn không có quyền truy cập chức năng này</h2>
+            <p>
+                Bạn muốn đăng nhập vào tài khoản khác? <a href="@Url.Action("Dangnhap","Home")">Đăng nhập</a>
+            </p>
+            <div class="mid_center">
+                <h3>Search</h3>
+                <form>
+                    <div class="col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,241 @@
+﻿@model IEnumerable<QuanLyXe.Models.PHANQUYEN>
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <h3>Chức năng</h3>
+        <ul class="nav side-menu">
+
+            @foreach (var item
+                in Model)
+            {
+                if (item.MAQUYEN == 5 || item.MAQUYEN == 6)
+                {
+                    <li>
+                        <a><i class="fa fa-automobile"></i> Danh sách xe <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 5)
+                        {
+                                    <li><a href="@Url.Action("Thongtinxe", "Xe")">Thông tin</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 6)
+                        {
+                                    <li><a href="@Url.Action("Themxe", "Xe")">Thêm xe</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                if (item.MAQUYEN == 7 || item.MAQUYEN == 8 || item.MAQUYEN == 1021)
+                {
+                    <li>
+                        <a><i class="fa fa-male"></i> Tài xế <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 7)
+                        {
+                                    <li><a href="@Url.Action("Thongtintaixe", "TTTaixe")">Thông tin</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 8)
+                        {
+                                    <li><a href="@Url.Action("Themtaixe", "TTTaixe")">Thêm tài xế</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 1021)
+                        {
+                                    <li><a href="@Url.Action("PhancongTX", "TTTaixe")">Phân công</a></li>
+                                }
+                            }
+
+
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                if (item.MAQUYEN == 1 || item.MAQUYEN == 2 || item.MAQUYEN == 3 || item.MAQUYEN == 4 || item.MAQUYEN == 1017 || item.MAQUYEN == 1018)
+                {
+                    <li>
+                        <a><i class="fa fa-bus"></i> Đặt xe <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 1)
+                        {
+                                    <li><a href="@Url.Action("Dexuatxe", "Datxe")">Đề xuất xe</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 2)
+                        {
+                                    <li><a href="@Url.Action("Thongtindexuat", "Datxe")">Duyệt đề xuất</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 3)
+                        {
+                                    <li><a href="@Url.Action("Thongtindatxe", "Datxe")">Duyệt đặt xe</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 4)
+                        {
+                                    <li><a href="@Url.Action("Lichsudatnv", "Datxe")">Lịch sử đặt</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 1017)
+                        {
+                                    <li><a href="@Url.Action("Lichsudattk", "Datxe")">Lịch sử đặt</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 1018)
+                        {
+                                    <li><a href="@Url.Action("Lichsudatqt", "Datxe")">Lịch sử đặt</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                if (item.MAQUYEN == 15 || item.MAQUYEN == 10)
+                {
+                    <li>
+                        <a><i class="fa fa-fire-extinguisher"></i> Xăng dầu <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 15)
+                        {
+                                    <li><a href="@Url.Action("Xanglop", "Suachua")">Thông tin</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 10)
+                        {
+                                    <li><a href="@Url.Action("Themxanglop", "Suachua")">Nhập thông tin</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                if (item.MAQUYEN == 16 || item.MAQUYEN == 11)
+                {
+                    <li>
+                        <a><i class="fa fa-wrench"></i> Sửa chữa <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 16)
+                        {
+                                    <li><a href="@Url.Action("Suachuax", "Suachua")">Thông tin</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 11)
+                        {
+                                    <li><a href="@Url.Action("Themsuachuax", "Suachua")">Nhập thông tin</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                if (item.MAQUYEN == 14 || item.MAQUYEN == 12)
+                {
+                    <li>
+                        <a><i class="fa fa-bus"></i> Phí khác <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 14)
+                        {
+                                    <li><a href="@Url.Action("Phikhac", "Suachua")">Thông tin</a></li>
+                                }
+                            }
+
+                            @foreach (var item1 in Model)
+                    {
+                        if (item1.MAQUYEN == 12)
+                        {
+                                    <li><a href="@Url.Action("Themphikhac", "Suachua")">Nhập thông tin</a></li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                    break;
+                }
+            }
+
+            <li>
+                <a><i class="fa fa-user"></i>Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="#">Thông tin</a></li>
+                    <li><a href="#">Sửa tài khoản</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿@model QuanLyXe.Models.ThongtinDatxe
+
+@{
+    ViewBag.Title = "Suadatxe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@using (Html.BeginForm("Suadatxe", "Datxe", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Thêm xe</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Mã đặt xe:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MADX, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+                            @Html.ValidationMessageFor(model => model.MADX, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Loại xe:</div>
+                        <div class="col-md-10">
+                            @Html.DropDownList("MaLX", null, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ngày đi:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAYDI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NGAYDI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Ngày về:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NGAYVE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NGAYVE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Giờ đi:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GIODI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GIODI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Giờ về:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GIOVE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GIOVE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Lộ trình đi:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LOTRINHDI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LOTRINHDI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số KM đi:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SOKMDI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SOKMDI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Lộ trình về:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LOTRINHVE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LOTRINHVE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số KM về:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SOKMVE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SOKMVE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Số lượng đoàn:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SOLUONGDOAN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SOLUONGDOAN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 col-sm-2 col-xs-12">Chủ trì:</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CHUTRIDOAN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CHUTRIDOAN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Lưu" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

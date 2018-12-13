@@ -1,0 +1,16 @@
+﻿@model IEnumerable<QuanLyXe.Models.sp_Xedadat_Result>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.MAXE</td>
+        <td>@item.BIENSO</td>
+        <td>@item.NHANHIEU</td>
+        <td>@item.TENTINHTRANG</td>
+        <td style="color:blue">@item.TENTRANGTHAI</td>
+        <td>@item.TENLOAIXE</td>
+        <td>@item.SOCHUYEN</td>
+        <td>@item.SOKM</td>
+        <td></td>
+    </tr>
+}

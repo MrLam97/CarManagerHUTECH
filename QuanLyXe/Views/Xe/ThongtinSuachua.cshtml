@@ -1,0 +1,33 @@
+﻿@model IEnumerable<QuanLyXe.Models.v_Suachua>
+
+<h3>Sửa chữa</h3>
+<table class="data table table-striped no-margin">
+    <thead>
+        <tr>
+            <th>Nơi sửa</th>
+            <th>Nội dung</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th>Ghi chú</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.NOISUA</td>
+                <td>@item.NOIDUNGSC</td>
+                <td>@item.SOLUONGSC</td>
+                <td>@item.TONGTIENSC</td>
+                <td>@item.NGAYBD.Value.Day/@item.NGAYBD.Value.Month/@item.NGAYBD.Value.Year</td>
+                <td>@item.NGAYKT.Value.Day/@item.NGAYKT.Value.Month/@item.NGAYKT.Value.Year</td>
+                <td>@item.GHICHUSC</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+
